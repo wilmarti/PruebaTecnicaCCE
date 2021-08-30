@@ -1,6 +1,6 @@
 # Prueba Tecnica CCE
 
-### Pasos para la instalacion del proyecto
+### Pasos para la instalacion del proyecto Front End
 ```
 1. Crear la base de datos NorthWind en el motor de base de datos sql server - con el script entregado
 2. Realizar la instalacion de Node.js
