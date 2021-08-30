@@ -1,4 +1,4 @@
-# cursoscnb
+# Prueba Tecnica CCE
 
 ## Project setup
 ```
