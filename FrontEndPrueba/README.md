@@ -9,14 +9,16 @@ Cada usuario podrá hacer un registro básico (nombre/email/password) para poder
 compra de dichos productos.
 ```
 
-### Compiles and hot-reloads for development
+### Herramientas utilizadas Back End
 ```
-npm run serve
+1. Node.js (como entorno en tiempo de ejecución multiplataforma, de código abierto, para la capa del servidor basado en el lenguaje de programación JavaScript)
+2. Express.js (marco de aplicación web de back-end para Node.js, diseñado para crear aplicaciones web y API)
+3. Base de datos Sql Server (como motor de base de datos) Bd NorthWind
 ```
 
-### Compiles and minifies for production
+### Herramientas utilizadas Front End
 ```
-npm run build
+1. Vue.js (como framework de JavaScript de código abierto para la construcción de interfaces de usuario y aplicaciones de una sola página)
 ```
 
 ### Customize configuration
