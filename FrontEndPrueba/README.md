@@ -20,6 +20,12 @@ compra de dichos productos.
 ```
 1. Vue.js (como framework de JavaScript de código abierto para la construcción de interfaces de usuario y aplicaciones de una sola página)
 ```
+### Pasos para la instalacion del proyecto
+```
+1. Crear la base de datos NorthWind en el motor de base de datos sql server - con el script entregado
+2. Realizar la instalacion de Node.js
+3. Descargar todos los archivos del repositorio 
+```
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
