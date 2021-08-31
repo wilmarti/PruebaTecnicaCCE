@@ -23,6 +23,7 @@ compra de dichos productos.
 ### Pasos para la instalacion del proyecto
 ```
 Pasos para la instalación de la prueba
+
 Instalación Back End
 1.	Crear la base de datos NorthWind 
 Descargue los archivos NorthWind.sql y ScriptSql.sql del repositorio, ubicados en la ruta PruebaTecnicaCCE/Tienda/src/Data/ y ejecútelos en el motor de base de datos sql server para poder realizar la creación de la base de datos y el poblamiento de las tablas de datos.
@@ -44,27 +45,7 @@ Descargue los archivos NorthWind.sql y ScriptSql.sql del repositorio, ubicados e
 8.	Debe observar algo como se muestra en la siguiente imagen:
 
 
- 
-La pantalla principal de la prueba cuenta con el menú denominado Tienda, el cual tiene 2 submenús, así:
-
- 
-Al dar Click en el menú de Productos, podrá ver un top 20 de productos así, en donde podrá enviar productos al carro de compras.
-
-
- 
-
-Al presionar el botón agregar al carro se verá lo siguiente:
-
- 
-Validación del stock del producto 
-
-  
-
-La siguiente opción de menú es la denominada Carro de Compras, la cual se ve así: 
-
- 
-
-La pantalla anterior tiene las siguientes funcionalidades:
+Algunas funcionalidades:
 
 1.	Búsqueda de productos por cada letra ingresada filtra automáticamente.
 2.	Conteo de la cantidad de productos dentro del carro de compras
