@@ -8,7 +8,7 @@ var bodyParser = require("body-parser");
 
   /*************************************************************************************************************************/
   /***************************************************** RUTAS *************************************************************/
-
+  /*Archivo que contiene las rutas de conexion a la base de datos necesarias para responder las solicitudes del Front End */
 
             /**************************** Ruta utilizada para consultar los productos de la tienda *********************/
             router.get('/',async (req, res) => {
@@ -16,7 +16,6 @@ var bodyParser = require("body-parser");
                   
                   const pool = await poolPromise  
                   const result = await pool.request()   
-                //.query("select Id_Curso value,NombreCurso text, case when estado= 1 then 'ACTIVO' ELSE 'INACTIVO' END AS ESTADO,NumeroHoras from [dbo].[TBL_RCURSO_VIRTUAL] order by Id_Curso " ,function(err, profileset){  
                   .query("select top 10 ProductID as Id,ProductName,UnitPrice,UnitsInStock from  products" ,function(err, profileset){      
                     
                 if (err){  
@@ -42,7 +41,6 @@ var bodyParser = require("body-parser");
                   
                   const pool = await poolPromise  
                   const result = await pool.request()   
-                //.query("select Id_Curso value,NombreCurso text, case when estado= 1 then 'ACTIVO' ELSE 'INACTIVO' END AS ESTADO,NumeroHoras from [dbo].[TBL_RCURSO_VIRTUAL] order by Id_Curso " ,function(err, profileset){  
                   .query("select IdProducto id,ProductName,SUM(cantidad) cantidad ,UnitPrice ValorUnidad, SUM(cantidad) * UnitPrice as ValorTotal from ProductosCarro a inner join Products b on a.IdProducto = b.ProductID GROUP BY IdProducto,ProductName,UnitPrice" ,function(err, profileset){      
                     
                 if (err){  
@@ -164,9 +162,6 @@ var bodyParser = require("body-parser");
         try {  
 
           const newProductoCarro = {...req.body};
-          console.log("newUsuario.username",newProductoCarro.IdProducto)
-          console.log("newUsuario.email",newProductoCarro.IdUsuario)
-          console.log("newUsuario.password",newProductoCarro.Cantidad)
           var sql = `Insert into ProductosCarro (IdProducto,IdUsuario,Cantidad) VALUES ('${newProductoCarro.IdProducto}','${newProductoCarro.IdUsuario}','${newProductoCarro.Cantidad}')`;
 
           const pool = await poolPromise  
@@ -196,9 +191,6 @@ var bodyParser = require("body-parser");
       try {  
 
         const newCompraCliente = {...req.body};
-        console.log("newCompraCliente.NombreCliente",newCompraCliente.NombreCliente)
-        console.log("newCompraCliente.EmailCliente",newCompraCliente.EmailCliente)
-        console.log("newCompraCliente.PasswordCliente",newCompraCliente.PasswordCliente)
         var sql = `Insert into Ventas (NombreComprador,EmailComprador,PasswordComprador,IdProducto,Cantidad,ValorUnidad,ValorTotal) VALUES ('${newCompraCliente.NombreCliente}','${newCompraCliente.EmailCliente}','${newCompraCliente.PasswordCliente}','${newCompraCliente.idproduct}','${newCompraCliente.Cantidad}','${newCompraCliente.VUnidad}','${newCompraCliente.VTotal}')`;
 
         const pool = await poolPromise  

@@ -7,6 +7,8 @@
 
       <br/>
 
+
+      <!-- Tabla utilizada para mostrar los productos de la tienda -->
       <table class="table">
                         <thead>
                             <tr>
@@ -25,9 +27,9 @@
                                 <td>{{pro.UnitsInStock}}</td> 
                                                               
                                 <td>
-                                  <b-button size="sm" variant="outline-success" v-b-modal.modalEdicion @click="AgregarAlCarro(pro.Id,pro.UnitsInStock,pro.ProductName)">Agregar al carro</b-button>    
-                                  <!-- <b-button size="sm" variant="outline-danger" @click="EliminarCurso(pro.Id)" >Retirar del carro</b-button> -->
-                                </td>
+                                  <!-- boton utilisado para agregar elementos al carro -->
+                                  <b-button size="sm" variant="outline-success" v-b-modal.modalEdicion @click="AgregarAlCarro(pro.Id,pro.UnitsInStock,pro.ProductName)">Agregar al carro</b-button>   
+                                 </td>
                             </tr>
                         </tbody>
                     </table>
@@ -40,7 +42,7 @@
 
 
 
-
+    <!-- pantalla modal - para solicitar numero de unidades a comprar del producto -->
     <div id="modal">
     <b-modal
       id="modalEdicion"
@@ -85,6 +87,8 @@
 </template>
 
 <script>
+
+/* importaciones necesarias para el funcionamiento correcto del proyecto */
 import {mapState,mapMutations} from 'vuex'  
 import axios from 'axios'
 import { mdbScrollbar,mdbTbl, mdbTblHead, mdbTblBody } from 'mdbvue';
@@ -103,6 +107,7 @@ export default {
       VueScrollingTable
     },
   data(){
+    //variables de estado del proyecto
       return {
         Id:null,
         stock:null,
@@ -113,8 +118,6 @@ export default {
 
 
       //caracteristicas del scroll
-      scrollVertical: true,
-			scrollHorizontal: true,
 			syncHeaderScroll: true,
 			syncFooterScroll: true,
 			includeFooter: true,
@@ -163,11 +166,10 @@ export default {
   },  
   /***************Se ejecuta cuando el componnete se monte */
   mounted(){
-      //process.env.ApiUrl= "https://cnbcolombia.com/node/ApiACNB//api/" 
-      //console.log("montaje",env.ApiUrl)
       this.getProductos();
   },
 
+   /***************métodos del carro de compras */
    methods:{
     resetModal() {
         this.id = null
@@ -185,7 +187,6 @@ export default {
  
     AgregarAlCarro (id,stock,NombreProducto)
     { 
-      //console.log("este es el diploma:", diploma)
       //se limpia el formulario modal
       this.resetModal();
         this.Id = id      
@@ -203,6 +204,7 @@ export default {
 
     },
 
+      /* validacion del formulario modal */
       checkFormValidity() {
         const valid = this.$refs.form.checkValidity()
         this.valid = valid
@@ -210,13 +212,12 @@ export default {
       },
 
       resetModal() {
-        //this.CantidadComprar = ''
         this.nameState = null        
       },
 
 
       handleOk(bvModalEvt) {
-      // se realiza la edicion del curso
+      // se realiza el envio de informacion del formulario modal hacia la API Rest
       const Operacion = "Restar"
       const Cantidad = this.CantidadComprar
       const UnitsInStock = {Cantidad,Operacion}     
@@ -316,6 +317,9 @@ export default {
   }
 }
 </script>
+
+
+
 
 <style>
 

@@ -3,7 +3,7 @@
     <div>        
     <br/>        
 
-
+<!-- Busquedas y conteos de productos dentro del carro de compras -->
     <b-row>
         <b-col md="3">
           <input type="text" width="100" placeholder="Buscar por nombre de producto" class="form-control" v-model="buscarId">
@@ -15,6 +15,7 @@
     </b-row>
 
     <br/>
+    <!-- Tabla utilizada para mostrar los productos del carro de compras -->
     <b-row class="bg-dark"> 
         <b-col ><p class="text-light">ID</p></b-col>
         <b-col ><p class="text-light">DESCRIPCION_PRODUCTO</p></b-col>
@@ -29,16 +30,12 @@
         <b-col>{{item.cantidad}}</b-col>  
         <b-col>${{item.ValorUnidad}}</b-col>
         <b-col>${{item.ValorTotal}}</b-col>
-        <b-col><!-- <router-link :to="{name:'Tienda',params: {id: item.nombre + '|'+item.tipoid +'|'+ item.nroid + '|' + item.NombreCurso }}">
-                    <button v-b-modal.modal-xl class="bg-danger text-white " >Desinscribir </button> 
-                    <button class="bg-danger padding=2 text-white padding" @click="Desinscribir(item.tipoid,item.nroid)">Quitar</button>               
-                    <button class="bg-success  text-white" @click="Desinscribir(item.tipoid,item.nroid)">comprar</button>-->
-                    <div >
-                    <button type="button" class="btn bg-danger text-white mr-3"  @click="Desinscribir(item.id,item.cantidad)">Sacar del carro</button>
-                    <button type="button" class="btn bg-success text-white mr-3" @click="GuardarCompra(item.id,item.cantidad,item.ValorUnidad,item.ValorTotal)" v-b-modal.modalEdicion >Comprar</button>
-                    </div>
-
-               <!--  </router-link> -->
+        <b-col>
+            <div >
+                <!-- botones de accion de la grilla del carro de compras -->
+            <button type="button" class="btn bg-danger text-white mr-3"  @click="Desinscribir(item.id,item.cantidad)">Sacar del carro</button>
+            <button type="button" class="btn bg-success text-white mr-3" @click="GuardarCompra(item.id,item.cantidad,item.ValorUnidad,item.ValorTotal)" v-b-modal.modalEdicion >Comprar</button>
+            </div>
         </b-col>
     </b-row>
     <br/> 
@@ -129,6 +126,7 @@ import axios from 'axios'
 export default {
     name: 'Tienda',
     data: function () {
+        /* variables de estado */
         return {
         buscar: '',
         buscarId: '',
@@ -152,7 +150,9 @@ export default {
         console.log("montaje")
         this.getListaCarro();
         this.getParticipantescombo()
-    },    
+    },  
+
+    /***************propiedades computadas */
     computed:{
         ...mapState(['participante','curso']),
         

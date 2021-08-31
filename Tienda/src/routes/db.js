@@ -4,6 +4,7 @@ const sql = require('mssql')
 var Request = require('tedious').Request; */
 
  
+//Variable de configuracion de conexion a la base de datos
  const config = {
     user: 'sa',
     password: 'Kiara',
@@ -16,6 +17,7 @@ var Request = require('tedious').Request; */
 }   
 
 
+// codigo de conexion a la base de datos
  const poolPromise = new sql.ConnectionPool(config)  
 .connect()  
 .then(pool => {  
